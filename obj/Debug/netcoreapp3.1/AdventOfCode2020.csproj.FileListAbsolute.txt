@@ -1,0 +1,14 @@
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.csprojAssemblyReference.cache
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.csproj.CoreCompileInputs.cache
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.AssemblyInfoInputs.cache
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.AssemblyInfo.cs
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\AdventOfCode2020.exe
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\AdventOfCode2020.deps.json
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\AdventOfCode2020.runtimeconfig.json
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\AdventOfCode2020.runtimeconfig.dev.json
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\AdventOfCode2020.dll
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\AdventOfCode2020.pdb
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.dll
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.pdb
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\obj\Debug\netcoreapp3.1\AdventOfCode2020.genruntimeconfig.cache
+D:\Projects\Sander\GitHub\New folder\AdventOfCode2020\bin\Debug\netcoreapp3.1\inputs\day1.txt
