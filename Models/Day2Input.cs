@@ -18,5 +18,14 @@ namespace AdventOfCode2020.Models
 
             return characterCount >= Minimum && characterCount <= Maximum;
         }
+
+        public bool IsValidPositionedPassword()
+        {
+            var passwordCharacters = Password.ToCharArray();
+            var char1Match = passwordCharacters[Minimum-1] == Character;
+            var char2Match = passwordCharacters[Maximum-1] == Character;
+
+            return char1Match != char2Match;
+        }
     }
 }

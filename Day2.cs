@@ -18,7 +18,7 @@ namespace AdventOfCode2020
             Console.WriteLine("Finished with executing assignment 1!");
             
             Console.WriteLine("Start with executing assignment 2!");
-            //Assignment2(orderedNumbers);
+            Assignment2(data);
             Console.WriteLine("Finished with executing assignment 2!");            
         }
 
@@ -26,6 +26,12 @@ namespace AdventOfCode2020
         {
             var numberOfValidPasswords = data.Count(x => x.IsValidPassword());
             Console.WriteLine($"There are {numberOfValidPasswords} valid passwords!");
+        }
+
+        private void Assignment2(IList<Day2Input> data)
+        {
+            var numberOfValidPasswords = data.Count(x => x.IsValidPositionedPassword());
+            Console.WriteLine($"There are {numberOfValidPasswords} valid passwords with correct character positioning!");
         }
 
         private async Task<IList<Day2Input>> ReadDataFromFile() 
