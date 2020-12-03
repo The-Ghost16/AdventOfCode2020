@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AdventOfCode2020.Helpers;
 
 namespace AdventOfCode2020 
 {
@@ -103,19 +104,13 @@ namespace AdventOfCode2020
         private async Task<IList<int>> ReadNumbersFromFile()
         {
             var numbers = new List<int>();
-            using(var sr = new StreamReader("inputs\\day1.txt"))
+            var input = await FileContentReader.ReadInput(1);
+            foreach(var line in input)
             {
-                var line = await sr.ReadLineAsync();
-                do
+                if(int.TryParse(line, out var number))
                 {
-                    if(int.TryParse(line, out var number))
-                    {
-                        numbers.Add(number);
-                    }
-
-                    line = await sr.ReadLineAsync();
+                    numbers.Add(number);
                 }
-                while(string.IsNullOrEmpty(line) == false);
             }
 
             return numbers;
