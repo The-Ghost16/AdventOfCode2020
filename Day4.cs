@@ -32,6 +32,8 @@ namespace AdventOfCode2020
 
         private void Assignment2() 
         {
+            var validPassportCount = data.Count(x => x.PassportFieldsAreValid);
+            Console.WriteLine($"There are {validPassportCount} valid passports with the correct field values!");
         }
         
         private async Task<IList<Day4Input>> ReadData() 
