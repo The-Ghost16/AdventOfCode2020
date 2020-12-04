@@ -30,6 +30,11 @@ namespace AdventOfCode2020
             await day3.Run();
             Console.WriteLine("Day 3 is finished!");
 
+            Console.WriteLine("Start with day 4!");
+            var day4 = new Day4();
+            await day4.Run();
+            Console.WriteLine("Day 4 is finished!");
+
             Console.WriteLine("Finished all the assignments!");
             Console.ReadLine();
         }

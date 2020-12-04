@@ -12,14 +12,11 @@ namespace AdventOfCode2020.Helpers
 
             using(var sr = new StreamReader($"inputs\\day{dayNumber}.txt"))
             {
-                var line = await sr.ReadLineAsync();
-                do
+                while(sr.EndOfStream == false)
                 {
+                    var line = await sr.ReadLineAsync();
                     content.Add(line);
-
-                    line = await sr.ReadLineAsync();
                 }
-                while(string.IsNullOrEmpty(line) == false);
             }
 
             return content;
