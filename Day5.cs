@@ -7,30 +7,17 @@ using AdventOfCode2020.Models;
 
 namespace AdventOfCode2020
 {
-    public class Day5
+    public class Day5 : Day<List<Day5Input>>
     {
-        private IList<Day5Input> data;
+        public override string Title => "Day 5";
 
-        public async Task Run() 
-        {
-            data = await ReadData();
-
-            Console.WriteLine("Start with executing assignment 1!");
-            Assignment1();
-            Console.WriteLine("Finished with executing assignment 1!");
-            
-            Console.WriteLine("Start with executing assignment 2!");
-            Assignment2();
-            Console.WriteLine("Finished with executing assignment 2!");
-        }
-
-        private void Assignment1()
+        protected override void Assignment1()
         {
             var highestSeatId = data.Max(x => x.SeatId);
             Console.WriteLine($"The boarding pass with the highest seat id {highestSeatId}");
         }
 
-        private void Assignment2() 
+        protected override void Assignment2() 
         {
             var orderedData = data.Where(x => x.Row != 0 && x.Row != 127).OrderBy(x => x.SeatId).ToList();
 
@@ -55,7 +42,7 @@ namespace AdventOfCode2020
             Console.WriteLine($"The boarding pass seat id should be: {orderedData[i].SeatId + 1}");
         }
         
-        private async Task<IList<Day5Input>> ReadData() 
+        protected override async Task<List<Day5Input>> ReadData() 
         {
             var content = new List<Day5Input>();
 

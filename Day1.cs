@@ -7,44 +7,32 @@ using AdventOfCode2020.Helpers;
 
 namespace AdventOfCode2020 
 {
-    public class Day1
+    public class Day1 : Day<List<int>>
     {
-        public async Task Run() 
-        {
-            var numbers = await ReadNumbersFromFile();
-            var orderedNumbers = numbers.OrderBy(x => x).ToList();
+        public override string Title => "Day 1";
 
-            Console.WriteLine("Start with executing assignment 1!");
-            Assignment1(orderedNumbers);
-            Console.WriteLine("Finished with executing assignment 1!");
-            
-            Console.WriteLine("Start with executing assignment 2!");
-            Assignment2(orderedNumbers);
-            Console.WriteLine("Finished with executing assignment 2!");
-        }
-
-        private void Assignment1(IList<int> input) 
+        protected override void Assignment1() 
         {
             int number1 = 0, number2 = 0;
-            for(var i = 0; i <= input.Count; i++) 
+            for(var i = 0; i <= data.Count; i++) 
             {
                 var found = false;
-                var number = input[i];
+                var number = data[i];
                 var j = i + 1;
-                var sum = number + input[j];
+                var sum = number + data[j];
                 do 
                 {
                     if(sum == 2020) 
                     {
                         number1 = number;
-                        number2 = input[j];
+                        number2 = data[j];
                         Console.WriteLine($"The following 2 numbers sum up to 2020: {number1} and {number2}");
                         found = true;
                         break;
                     }
 
                     j++;
-                    sum = number + input[j];
+                    sum = number + data[j];
                 }
                 while (sum <= 2020);
                 if(found) 
@@ -57,19 +45,19 @@ namespace AdventOfCode2020
 
         }
 
-        private void Assignment2(IList<int> input) 
+        protected override void Assignment2() 
         {
             int number1 = 0, number2 = 0, number3 = 0;
-            for(var i = 0; i < input.Count - 2; i++) 
+            for(var i = 0; i < data.Count - 2; i++) 
             {
                 var found = false;
-                var tempNumber1 = input[i];
+                var tempNumber1 = data[i];
 
-                for(var j = i + 1; j < input.Count - 1; j++)
+                for(var j = i + 1; j < data.Count - 1; j++)
                 {   
-                    var tempNumber2 = input[j];
+                    var tempNumber2 = data[j];
                     var k = j + 1;    
-                    var tempNumber3 = input[k];
+                    var tempNumber3 = data[k];
                     var sum = tempNumber1 + tempNumber2 + tempNumber3;
                     do 
                     {
@@ -84,8 +72,8 @@ namespace AdventOfCode2020
                         }
 
                         k++;
-                        if(k < input.Count){
-                            tempNumber3 = input[k];
+                        if(k < data.Count){
+                            tempNumber3 = data[k];
                             sum = tempNumber1 + tempNumber2 + tempNumber3;
                         }
                     }
@@ -101,7 +89,7 @@ namespace AdventOfCode2020
 
         }
 
-        private async Task<IList<int>> ReadNumbersFromFile()
+        protected override async Task<List<int>> ReadData()
         {
             var numbers = new List<int>();
             var input = await FileContentReader.ReadInput(1);
@@ -113,7 +101,7 @@ namespace AdventOfCode2020
                 }
             }
 
-            return numbers;
+            return numbers.OrderBy(x => x).ToList();
         }
     }
 }

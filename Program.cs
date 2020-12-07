@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AdventOfCode2020
 {
     class Program
     {
+        private static readonly IList<IDay> Days = new List<IDay> { new Day1(), new Day2(), new Day3(), new Day4(), new Day5() };
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -15,30 +18,13 @@ namespace AdventOfCode2020
         {
             Console.WriteLine("Welcome to the problem solving solutions of Advent of Code 2020!");
 
-            Console.WriteLine("We're going to start with day 1!");
-            var day1 = new Day1();
-            await day1.Run();
-            Console.WriteLine("Day 1 is finished!");
-
-            Console.WriteLine("Start with day2!");
-            var day2 = new Day2();
-            await day2.Run();
-            Console.WriteLine("Day 2 is finished!");
-
-            Console.WriteLine("Start with day3!");
-            var day3 = new Day3();
-            await day3.Run();
-            Console.WriteLine("Day 3 is finished!");
-
-            Console.WriteLine("Start with day 4!");
-            var day4 = new Day4();
-            await day4.Run();
-            Console.WriteLine("Day 4 is finished!");
-
-            Console.WriteLine("Start with day 5!");
-            var day5 = new Day5();
-            await day5.Run();
-            Console.WriteLine("Day 5 is finished!");
+            foreach(var day in Days)
+            {
+                Console.WriteLine($"Start running the assignments for {day.Title}!");
+                await day.Run();
+                Console.WriteLine($"Finished all the assignments for {day.Title}!");
+                Console.WriteLine($"------------------------------------------------------");
+            }
 
             Console.WriteLine("Finished all the assignments!");
             Console.ReadLine();

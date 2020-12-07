@@ -7,34 +7,23 @@ using AdventOfCode2020.Models;
 
 namespace AdventOfCode2020
 {
-    public class Day2
+    public class Day2 : Day<List<Day2Input>>
     {
-        public async Task Run() 
-        {
-            var data = await ReadDataFromFile();
+        public override string Title => "Day 2";
 
-            Console.WriteLine("Start with executing assignment 1!");
-            Assignment1(data);
-            Console.WriteLine("Finished with executing assignment 1!");
-            
-            Console.WriteLine("Start with executing assignment 2!");
-            Assignment2(data);
-            Console.WriteLine("Finished with executing assignment 2!");            
-        }
-
-        private void Assignment1(IList<Day2Input> data) 
+        protected override void Assignment1() 
         {
             var numberOfValidPasswords = data.Count(x => x.IsValidPassword());
             Console.WriteLine($"There are {numberOfValidPasswords} valid passwords!");
         }
 
-        private void Assignment2(IList<Day2Input> data)
+        protected override void Assignment2()
         {
             var numberOfValidPasswords = data.Count(x => x.IsValidPositionedPassword());
             Console.WriteLine($"There are {numberOfValidPasswords} valid passwords with correct character positioning!");
         }
 
-        private async Task<IList<Day2Input>> ReadDataFromFile() 
+        protected override async Task<List<Day2Input>> ReadData() 
         {
             var data = new List<Day2Input>();
 

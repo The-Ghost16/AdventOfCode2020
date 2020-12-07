@@ -4,28 +4,17 @@ using AdventOfCode2020.Helpers;
 
 namespace AdventOfCode2020
 {
-    public class Day3
-    {        
-        public async Task Run() 
-        {
-            var data = await ReadData();
+    public class Day3 : Day<string[,]>
+    {
+        public override string Title => "Day 3";
 
-            Console.WriteLine("Start with executing assignment 1!");
-            Assignment1(data);
-            Console.WriteLine("Finished with executing assignment 1!");
-            
-            Console.WriteLine("Start with executing assignment 2!");
-            Assignment2(data);
-            Console.WriteLine("Finished with executing assignment 2!");
-        }
-
-        private void Assignment1(string[,] data)
+        protected override void Assignment1()
         {
             var trees = CalculateTrees(data, 3, 1);
             Console.WriteLine($"Total number of trees: {trees}!");
         }
 
-        private void Assignment2(string[,] data) 
+        protected override void Assignment2() 
         {
             var trees1 = CalculateTrees(data, 1, 1);
             var trees2 = CalculateTrees(data, 3, 1);
@@ -60,7 +49,7 @@ namespace AdventOfCode2020
             return trees;
         }
 
-        public async Task<string[,]> ReadData() 
+        protected override async Task<string[,]> ReadData() 
         {
             var input = await FileContentReader.ReadInput(3);
             var data = new string[input.Count, input[0].Length];
