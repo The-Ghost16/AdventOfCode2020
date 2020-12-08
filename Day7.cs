@@ -28,6 +28,10 @@ namespace AdventOfCode2020
 
         protected override void Assignment2()
         {
+            var shinyGoldBag = data.Bags.Single(b => b.Name == "shiny gold");
+            var numberOfChildBags = CountBags(shinyGoldBag);
+
+            Console.WriteLine($"There are {numberOfChildBags} child bags required for the shiny gold bag.");
         }
 
         protected override async Task<Day7Input> ReadData()
@@ -83,6 +87,24 @@ namespace AdventOfCode2020
 
                 GetBags(extraBags);
             }
+        }
+
+        private int CountBags(Bag bag)
+        {
+            var count = 0;
+            foreach(var childBagKV in bag.ChildBags)
+            {
+                var result = 1;
+                var childBag = data.Bags.Single(b => b.Name == childBagKV.Key);
+                if(childBag.ChildBags.Any()) 
+                {
+                    result += CountBags(childBag);
+                } 
+
+                count += childBagKV.Value * result;
+            }
+
+            return count;
         }
     }
 }
