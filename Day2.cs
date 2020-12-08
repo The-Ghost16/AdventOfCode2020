@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AdventOfCode2020.Helpers;
 using AdventOfCode2020.Models;
 
 namespace AdventOfCode2020
 {
-    public class Day2 : Day<List<Day2Input>>
+    public class Day2 : Day<IList<Day2Input>>
     {
         public Day2() : base(2)
-        {
-            
+        {            
         }
 
         protected override void Assignment1() 
@@ -26,11 +23,10 @@ namespace AdventOfCode2020
             Console.WriteLine($"There are {numberOfValidPasswords} valid passwords with correct character positioning!");
         }
 
-        protected override async Task<List<Day2Input>> ReadData() 
+        protected override IList<Day2Input> ConvertInput(IList<string> input) 
         {
             var data = new List<Day2Input>();
 
-            var input = await FileContentReader.ReadInput(2);
             foreach(var line in input)
             {
                 var blocks = line.Split(' ');

@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using AdventOfCode2020.Models;
 
 namespace AdventOfCode2020
@@ -10,8 +8,7 @@ namespace AdventOfCode2020
     public class Day5 : Day<List<Day5Input>>
     {
         public Day5() : base(5)
-        {
-            
+        {            
         }
 
         protected override void Assignment1()
@@ -45,18 +42,13 @@ namespace AdventOfCode2020
             Console.WriteLine($"The boarding pass seat id should be: {orderedData[i].SeatId + 1}");
         }
         
-        protected override async Task<List<Day5Input>> ReadData() 
+        protected override List<Day5Input> ConvertInput(IList<string> input)
         {
             var content = new List<Day5Input>();
-
-            using(var sr = new StreamReader($"inputs\\day5.txt"))
+            foreach(var line in input)
             {
-                while(sr.EndOfStream == false)
-                {
-                    var line = await sr.ReadLineAsync();
-                    var input = new Day5Input(line);
-                    content.Add(input);
-                }
+                var day5Input = new Day5Input(line);
+                content.Add(day5Input);
             }
 
             return content;

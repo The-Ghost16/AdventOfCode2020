@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AdventOfCode2020.Helpers;
 using AdventOfCode2020.Models;
 using AdventOfCode2020.Models.Day7;
 
@@ -13,8 +11,7 @@ namespace AdventOfCode2020
         private List<Bag> assignment1Result = new List<Bag>();
 
         public Day7() : base(7)
-        {         
-            ConvertInput = HandleInput;   
+        { 
         }
 
         protected override void Assignment1()
@@ -37,7 +34,7 @@ namespace AdventOfCode2020
             Console.WriteLine($"There are {numberOfChildBags} child bags required for the shiny gold bag.");
         }
 
-        private Day7Input HandleInput(IList<string> input)
+        protected override Day7Input ConvertInput(IList<string> input)
         {
             var result = new Day7Input();
 

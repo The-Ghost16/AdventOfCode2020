@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AdventOfCode2020.Helpers;
 using AdventOfCode2020.Models;
 
 namespace AdventOfCode2020
@@ -11,7 +9,6 @@ namespace AdventOfCode2020
     {
         public Day6() : base(6)
         {
-            
         }
 
         protected override void Assignment1()
@@ -26,10 +23,9 @@ namespace AdventOfCode2020
             Console.WriteLine($"The sum is: {sum}");
         }
 
-        protected override async Task<IList<Day6Input>> ReadData()
+        protected override IList<Day6Input> ConvertInput(IList<string> input) 
         {
             var content = new List<Day6Input>();
-            var input = await FileContentReader.ReadInput(6);
 
             var day6Input = new Day6Input();
             foreach(var line in input)
@@ -46,6 +42,7 @@ namespace AdventOfCode2020
             content.Add(day6Input);
 
             return content;
+
         }
     }
 }

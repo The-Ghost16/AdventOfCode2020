@@ -1,14 +1,12 @@
 using System;
-using System.Threading.Tasks;
-using AdventOfCode2020.Helpers;
+using System.Collections.Generic;
 
 namespace AdventOfCode2020
 {
     public class Day3 : Day<string[,]>
     {
         public Day3() : base(3)
-        {
-            
+        {            
         }
 
         protected override void Assignment1()
@@ -52,9 +50,8 @@ namespace AdventOfCode2020
             return trees;
         }
 
-        protected override async Task<string[,]> ReadData() 
+        protected override string[,] ConvertInput(IList<string> input)
         {
-            var input = await FileContentReader.ReadInput(3);
             var data = new string[input.Count, input[0].Length];
             for(var i = 0; i < input.Count; i++) 
             {

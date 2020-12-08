@@ -7,8 +7,7 @@ namespace AdventOfCode2020
     public class Day1 : Day<List<int>>
     {
         public Day1() : base(1)
-        {   
-            ConvertInput = HandleInput;      
+        {       
         }
 
         protected override void Assignment1() 
@@ -88,7 +87,7 @@ namespace AdventOfCode2020
             Console.WriteLine($"The 3 found numbers are multiplied together: {number1*number2*number3}");
         }
 
-        private List<int> HandleInput(IList<string> input) 
+        protected override List<int> ConvertInput(IList<string> input) 
         {
             var numbers = new List<int>();
             foreach(var line in input)

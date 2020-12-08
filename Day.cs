@@ -44,15 +44,9 @@ namespace AdventOfCode2020
         protected virtual async Task<T> ReadData()
         {
             var input = await FileContentReader.ReadInput(day);
-
-            if(ConvertInput != null) 
-            {
-                return ConvertInput(input);
-            }
-
-            return default(T);
+            return ConvertInput(input);
         }
 
-        protected Func<IList<string>, T> ConvertInput;
+        protected abstract T ConvertInput(IList<string> input);
     }
 }

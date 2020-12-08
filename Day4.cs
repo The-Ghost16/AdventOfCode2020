@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using AdventOfCode2020.Models;
 
 namespace AdventOfCode2020
 {
-    public class Day4 : Day<List<Day4Input>>
+    public class Day4 : Day<IList<Day4Input>>
     {
         public Day4() : base(4)
-        {
-            
+        {            
         }
 
         protected override void Assignment1()
@@ -25,28 +22,24 @@ namespace AdventOfCode2020
             var validPassportCount = data.Count(x => x.PassportFieldsAreValid);
             Console.WriteLine($"There are {validPassportCount} valid passports with the correct field values!");
         }
-        
-        protected override async Task<List<Day4Input>> ReadData() 
+
+        protected override IList<Day4Input> ConvertInput(IList<string> input)
         {
             var content = new List<Day4Input>();
 
-            using(var sr = new StreamReader($"inputs\\day4.txt"))
+            var result = new Day4Input();
+            foreach(var line in input)
             {
-                var input = new Day4Input();
-                while(sr.EndOfStream == false)
+                if(string.IsNullOrEmpty(line)) 
                 {
-                    var line = await sr.ReadLineAsync();
-                    if(string.IsNullOrEmpty(line)) 
-                    {
-                        content.Add(input);
-                        input = new Day4Input();
-                        continue;
-                    }
-
-                    ParseLine(line, input);
+                    content.Add(result);
+                    result = new Day4Input();
+                    continue;
                 }
-                content.Add(input);
+
+                ParseLine(line, result);
             }
+            content.Add(result);
 
             return content;
         }
