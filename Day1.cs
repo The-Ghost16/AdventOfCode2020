@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using AdventOfCode2020.Helpers;
 
 namespace AdventOfCode2020 
 {
     public class Day1 : Day<List<int>>
     {
-        public override string Title => "Day 1";
+        public Day1() : base(1)
+        {   
+            ConvertInput = HandleInput;      
+        }
 
         protected override void Assignment1() 
         {
@@ -86,13 +86,11 @@ namespace AdventOfCode2020
                 }
             }
             Console.WriteLine($"The 3 found numbers are multiplied together: {number1*number2*number3}");
-
         }
 
-        protected override async Task<List<int>> ReadData()
+        private List<int> HandleInput(IList<string> input) 
         {
             var numbers = new List<int>();
-            var input = await FileContentReader.ReadInput(1);
             foreach(var line in input)
             {
                 if(int.TryParse(line, out var number))

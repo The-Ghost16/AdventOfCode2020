@@ -10,9 +10,12 @@ namespace AdventOfCode2020
 {
     public class Day7 : Day<Day7Input>
     {
-        public override string Title => "Day 7";
-
         private List<Bag> assignment1Result = new List<Bag>();
+
+        public Day7() : base(7)
+        {         
+            ConvertInput = HandleInput;   
+        }
 
         protected override void Assignment1()
         {
@@ -34,19 +37,18 @@ namespace AdventOfCode2020
             Console.WriteLine($"There are {numberOfChildBags} child bags required for the shiny gold bag.");
         }
 
-        protected override async Task<Day7Input> ReadData()
+        private Day7Input HandleInput(IList<string> input)
         {
-            var input = new Day7Input();
+            var result = new Day7Input();
 
-            var lines = await FileContentReader.ReadInput(7);
-            foreach(var line in lines)
+            foreach(var line in input)
             {
                 var bag = ParseLine(line);
 
-                input.Bags.Add(bag);
+                result.Bags.Add(bag);
             }
 
-            return input;
+            return result;
         }
 
         private Bag ParseLine(string line)

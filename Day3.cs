@@ -6,7 +6,10 @@ namespace AdventOfCode2020
 {
     public class Day3 : Day<string[,]>
     {
-        public override string Title => "Day 3";
+        public Day3() : base(3)
+        {
+            
+        }
 
         protected override void Assignment1()
         {

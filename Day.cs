@@ -1,13 +1,22 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AdventOfCode2020.Helpers;
 
 namespace AdventOfCode2020
 {
     public abstract class Day<T> : IDay
     {
+        private readonly int day;
+
         protected T data;
+
+        public Day(int day)
+        {
+            this.day = day;
+        }
         
-        public virtual string Title { get; }
+        public string Title => $"Day {day}";
 
         public async Task Run() 
         {
@@ -34,7 +43,16 @@ namespace AdventOfCode2020
 
         protected virtual async Task<T> ReadData()
         {
+            var input = await FileContentReader.ReadInput(day);
+
+            if(ConvertInput != null) 
+            {
+                return ConvertInput(input);
+            }
+
             return default(T);
         }
+
+        protected Func<IList<string>, T> ConvertInput;
     }
 }

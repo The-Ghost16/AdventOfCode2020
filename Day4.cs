@@ -9,7 +9,10 @@ namespace AdventOfCode2020
 {
     public class Day4 : Day<List<Day4Input>>
     {
-        public override string Title => "Day 4";
+        public Day4() : base(4)
+        {
+            
+        }
 
         protected override void Assignment1()
         {
