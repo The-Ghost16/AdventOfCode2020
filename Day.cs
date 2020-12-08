@@ -41,7 +41,7 @@ namespace AdventOfCode2020
             
         }
 
-        protected virtual async Task<T> ReadData()
+        private async Task<T> ReadData()
         {
             var input = await FileContentReader.ReadInput(day);
             return ConvertInput(input);
