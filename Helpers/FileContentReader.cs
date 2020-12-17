@@ -9,8 +9,8 @@ namespace AdventOfCode2020.Helpers
         public static async Task<IList<string>> ReadInput(int dayNumber) 
         {
             var content = new List<string>();
-
-            using(var sr = new StreamReader($"inputs\\day{dayNumber}.txt"))
+            var file = Path.Combine("inputs", $"day{dayNumber}.txt");
+            using(var sr = new StreamReader(file))
             {
                 while(sr.EndOfStream == false)
                 {
